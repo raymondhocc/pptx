@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Replace PPTX — Training Course</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/night.css" id="theme">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+<style>
+  :root{
+    --primary:#1E2761;
+    --secondary:#CADCFC;
+    --accent:#FF5A5F;
+  }
+  .reveal { font-family: 'Calibri', Arial, sans-serif; }
+  .reveal h1, .reveal h2, .reveal h3 { font-family: 'Cambria', 'Century Schoolbook', serif; text-transform:none; }
+  .reveal .slides { text-align:left; }
+  .reveal h1, .reveal h2 { color: var(--secondary); }
+  .reveal section.center { text-align:center; }
+  .title-slide h1 { font-size: 2.6em; color:#fff; margin-bottom:0.2em; }
+  .title-slide h3 { color: var(--secondary); font-weight:normal; }
+  .badge {
+    display:inline-block; padding:0.15em 0.6em; border-radius:6px;
+    background: var(--accent); color:#fff; font-size:0.5em; vertical-align:middle; margin-left:0.4em;
+  }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:1.2em; }
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius:12px;
+    padding:1em 1.2em;
+  }
+  .card h4 { margin-top:0; color: var(--secondary); }
+  table.compare { width:100%; border-collapse:collapse; font-size:0.65em; }
+  table.compare th, table.compare td { border:1px solid rgba(255,255,255,0.15); padding:0.5em 0.8em; text-align:left; }
+  table.compare th { background: rgba(255,255,255,0.08); color: var(--secondary); }
+  .stat { font-size:2.6em; font-weight:bold; color: var(--accent); }
+  .stat-label { font-size:0.5em; color: var(--secondary); display:block; }
+  .icon-row { display:flex; align-items:flex-start; gap:0.8em; margin-bottom:1em; }
+  .icon-circle {
+    flex-shrink:0; width:2em; height:2em; border-radius:50%;
+    background: var(--accent); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-weight:bold;
+  }
+  .reveal pre { width:100%; box-shadow:none; }
+  .reveal code { font-size:0.6em; }
+  footer.slide-footer { position:absolute; bottom:0.4em; right:0.8em; font-size:0.35em; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1. Title -->
+    <section class="center title-slide" data-background-color="#1E2761">
+      <h1>HTML Replace PPTX <span class="badge">Training</span></h1>
+      <h3>Why version-controlled, web-native slides beat PowerPoint</h3>
+      <p style="margin-top:2em; font-size:0.6em; color:#CADCFC;">A hands-on course for teams moving decks into HTML</p>
+    </section>
+
+    <!-- 2. Agenda -->
+    <section>
+      <h2>Course Agenda</h2>
+      <div class="grid2">
+        <div class="card">
+          <h4>Module 1 — The Problem with PPTX</h4>
+          <p style="font-size:0.7em;">Binary format pain, merge conflicts, bloated files, vendor lock-in.</p>
+        </div>
+        <div class="card">
+          <h4>Module 2 — HTML Slide Frameworks</h4>
+          <p style="font-size:0.7em;">reveal.js, impress.js, Marp, Slidev — how each works.</p>
+        </div>
+        <div class="card">
+          <h4>Module 3 — Git-Native Workflow</h4>
+          <p style="font-size:0.7em;">Diffs, PR review, CI-built decks, hosting on GitHub Pages.</p>
+        </div>
+        <div class="card">
+          <h4>Module 4 — Migration & Hands-on Lab</h4>
+          <p style="font-size:0.7em;">Converting an existing PPTX, building your first deck, publishing it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Problem stats -->
+    <section>
+      <h2>Module 1 — The Problem with PPTX</h2>
+      <div class="grid2">
+        <div class="card center">
+          <span class="stat">0%</span>
+          <span class="stat-label">Diffable in Git — binary blob, no line-level review</span>
+        </div>
+        <div class="card center">
+          <span class="stat">50MB+</span>
+          <span class="stat-label">Typical deck size with embedded media</span>
+        </div>
+        <div class="card center">
+          <span class="stat">1</span>
+          <span class="stat-label">App required to even open it (licensed, versioned)</span>
+        </div>
+        <div class="card center">
+          <span class="stat">∞</span>
+          <span class="stat-label">"final_v3_FINAL_reviewed.pptx" copies floating around</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Why HTML -->
+    <section>
+      <h2>Why HTML Instead?</h2>
+      <div class="icon-row"><div class="icon-circle">1</div><div><b>Plain text</b> — every slide is markup you can diff, review, and merge like code.</div></div>
+      <div class="icon-row"><div class="icon-circle">2</div><div><b>No proprietary app</b> — opens in any browser, on any OS, forever.</div></div>
+      <div class="icon-row"><div class="icon-circle">3</div><div><b>Live & embeddable</b> — real code snippets, live charts, video, iframes — not static screenshots.</div></div>
+      <div class="icon-row"><div class="icon-circle">4</div><div><b>Instant hosting</b> — push to GitHub Pages / Cloudflare Pages, share a URL, no attachments.</div></div>
+      <div class="icon-row"><div class="icon-circle">5</div><div><b>Themeable at scale</b> — one CSS change rebrands every deck in the repo.</div></div>
+    </section>
+
+    <!-- 5. Comparison table -->
+    <section>
+      <h2>PPTX vs HTML Decks</h2>
+      <table class="compare">
+        <tr><th>Aspect</th><th>PowerPoint (.pptx)</th><th>HTML Deck</th></tr>
+        <tr><td>Format</td><td>Binary ZIP of XML</td><td>Plain text (HTML/Markdown)</td></tr>
+        <tr><td>Version control</td><td>Whole-file replace only</td><td>Line-level diff & merge</td></tr>
+        <tr><td>Review workflow</td><td>Email / screen-share</td><td>Pull request + inline comments</td></tr>
+        <tr><td>Distribution</td><td>Email attachment / file share</td><td>URL — always latest version</td></tr>
+        <tr><td>Interactivity</td><td>Static, limited animation</td><td>Live code, video, charts, embeds</td></tr>
+        <tr><td>Theming</td><td>Manual per-deck template edits</td><td>Central CSS/theme file</td></tr>
+        <tr><td>Automation</td><td>Manual only</td><td>CI can generate/update decks from data</td></tr>
+      </table>
+    </section>
+
+    <!-- 6. Tooling -->
+    <section>
+      <h2>Module 2 — HTML Slide Frameworks</h2>
+      <div class="grid2">
+        <div class="card">
+          <h4>reveal.js</h4>
+          <p style="font-size:0.65em;">The de-facto standard. Vertical/horizontal navigation, speaker notes, PDF export, plugin ecosystem. This deck is built with it.</p>
+        </div>
+        <div class="card">
+          <h4>Marp</h4>
+          <p style="font-size:0.65em;">Write slides in Markdown, render to HTML/PDF/PPTX. Great for engineers who think in Markdown.</p>
+        </div>
+        <div class="card">
+          <h4>Slidev</h4>
+          <p style="font-size:0.65em;">Vue-powered, developer-first. Supports live component embeds and animated code diffs.</p>
+        </div>
+        <div class="card">
+          <h4>impress.js</h4>
+          <p style="font-size:0.65em;">CSS3 3D transforms for a "Prezi-style" zooming presentation experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Anatomy of a reveal.js slide -->
+    <section>
+      <h2>Anatomy of an HTML Slide</h2>
+      <pre><code class="language-html" data-trim>
+&lt;section&gt;
+  &lt;h2&gt;Slide Title&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Bullet one&lt;/li&gt;
+    &lt;li&gt;Bullet two&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;
+      </code></pre>
+      <p style="font-size:0.6em; color:#CADCFC;">Each &lt;section&gt; = one slide. Nest &lt;section&gt; tags for vertical sub-slides.</p>
+    </section>
+
+    <!-- 8. Git workflow -->
+    <section>
+      <h2>Module 3 — Git-Native Workflow</h2>
+      <div class="icon-row"><div class="icon-circle">1</div><div>Author slides as <code>index.html</code> / <code>slides.md</code> in a repo.</div></div>
+      <div class="icon-row"><div class="icon-circle">2</div><div>Open a PR — reviewers comment on exact lines, like code.</div></div>
+      <div class="icon-row"><div class="icon-circle">3</div><div>Merge to <code>main</code> — CI auto-deploys to GitHub Pages.</div></div>
+      <div class="icon-row"><div class="icon-circle">4</div><div>Share one permanent URL — audience always sees the latest version.</div></div>
+    </section>
+
+    <!-- 9. Migration strategy -->
+    <section>
+      <h2>Module 4 — Migrating an Existing Deck</h2>
+      <ol style="font-size:0.75em;">
+        <li>Export existing PPTX content to Markdown (<code>markitdown deck.pptx</code>).</li>
+        <li>Map each slide's text/media into a Marp or reveal.js section.</li>
+        <li>Re-theme with CSS instead of manually re-styling each slide.</li>
+        <li>Replace static charts/screenshots with live embeds where possible.</li>
+        <li>Commit to Git, open a PR, publish via Pages/Cloudflare.</li>
+      </ol>
+    </section>
+
+    <!-- 10. Hands-on lab -->
+    <section>
+      <h2>Hands-on Lab</h2>
+      <div class="card">
+        <h4>Exercise</h4>
+        <p style="font-size:0.7em;">
+          1. Fork this repo.<br>
+          2. Duplicate a &lt;section&gt; and edit its content.<br>
+          3. Commit with a descriptive message.<br>
+          4. Open a PR and request review from a teammate.<br>
+          5. Merge and view the diff — notice it reads like code, not a blob.
+        </p>
+      </div>
+    </section>
+
+    <!-- 11. Summary -->
+    <section class="center" data-background-color="#1E2761">
+      <h2>Key Takeaways</h2>
+      <p style="font-size:0.7em; max-width:700px; margin:0 auto;">
+        HTML slide decks bring presentations into the same review, version-control,
+        and deployment pipeline as software — diffable, hostable by URL,
+        and infinitely more automatable than a binary .pptx file.
+      </p>
+    </section>
+
+    <!-- 12. Q&A -->
+    <section class="center">
+      <h1>Q &amp; A</h1>
+      <p style="color:#CADCFC;">github.com/raymondhocc/pptx</p>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    controls: true,
+    progress: true,
+    center: false,
+    transition: 'slide',
+    plugins: [ RevealHighlight, RevealNotes ]
+  });
+</script>
+</body>
+</html>
